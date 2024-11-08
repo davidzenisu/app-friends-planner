@@ -1,12 +1,18 @@
-<%= render_form_for(@article, class: "w-3/4") do |form| %>
+<%= render_form_for(@article, class: "w-3/4 flex flex-col") do |form| %>
   <div class="grid grid-cols-3 items-baseline mb-4">
     <%= form.label :title, class: "text-right mr-4 text-lg" %>
     <%= form.text_field :title, class: "col-span-2" %>
   </div>
+  <% article.errors.full_messages_for(:title).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
   <div class="grid grid-cols-3 items-baseline">
     <%= form.label :body, class: "text-right mr-4 text-lg" %>
-    <%= form.textarea :body, class: "col-span-2 mb-8" %>
+    <%= form.textarea :body, class: "col-span-2 mb-8 bg-background" %>
   </div>
+  <% article.errors.full_messages_for(:body).each do |message| %>
+    <div><%= message %></div>
+  <% end %>
   <div class="flex gap-4 justify-center">
     <%= form.submit "Submit" %>
      <%= render_button "Discard", as: :link,
