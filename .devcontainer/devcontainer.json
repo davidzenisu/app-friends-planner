@@ -20,5 +20,8 @@
 				"esbenp.prettier-vscode"
 			]
 		}
+	},
+	"features": {
+		"ghcr.io/devcontainers/features/node:1": {}
 	}
 }
