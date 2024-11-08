@@ -1,14 +1,5 @@
 <h1 class="text-4xl">Articles</h1>
 
-<ul>
-  <% @articles.each do |article| %>
-    <li>
-      <%= link_to article.title, article %>
-    </li>
-  <% end %>
-</ul>
-
-
 <% @articles.each do |article| %>
   <%= render_card title: article.title,
   subtitle: "Last updated at #{article.updated_at.to_formatted_s(:long)}",
@@ -19,5 +10,5 @@
 
 
 <div>
-  <%= render_button "New Article", href: new_article_path %>
+  <%= render_button "New Article", as: :link, href: new_article_path %>
 </div>
